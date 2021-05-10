@@ -1,0 +1,20 @@
+name: 'Asana Release Updater'
+description: 'Updates and moves Asana items'
+inputs:
+  asana_pat:
+    description: 'Personal Access Token for Asana.'
+    required: true
+  asana_target_section_gid:
+    description: 'Id of section released issues to be moved to.'
+    required: true
+  asana_workspace_gid:
+    description: 'Workspace id.'
+    required: true
+  asana_project_gid:
+    description: 'Project id in which to search.'
+    required: true
+  asana_github_url_field_gid:
+
+runs:
+  using: 'node12'
+  main: 'index.js'
