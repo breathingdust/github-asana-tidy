@@ -62,6 +62,8 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
 }
 
 async function main() {
+  core.info(`Asana found for ${ASANA_WORKSPACE_GID}`);
+
   const asanaClient = asana.Client.create().useAccessToken(ASANA_PAT);
   const octokit = new Octokit();
   let issues = [];
