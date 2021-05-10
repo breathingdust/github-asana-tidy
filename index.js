@@ -5,7 +5,7 @@ const asana = require('asana');
 const ASANA_PAT = core.getInput('asana_pat');
 const ASANA_WORKSPACE_GID = core.getInput('asana_workspace_gid');
 const ASANA_PROJECT_GID = core.getInput('asana_project_gid');
-const ASANA_DONE_SECTION_GID = core.getInput('asana_done_section_gid');
+const ASANA_TARGET_SECTION_GID = core.getInput('asana_target_section_gid');
 const ASANA_GITHUB_URL_FIELD_GID = core.getInput('asana_github_url_field_gid');
 const GITHUB_RELEASE_NAME = core.getInput('github_release_name');
 
@@ -46,7 +46,7 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
     return Promise.all(
       [
         asanaClient.stories.createOnTask(task.gid, comment),
-        asanaClient.sections.addTask(ASANA_DONE_SECTION_GID, {
+        asanaClient.sections.addTask(ASANA_TARGET_SECTION_GID, {
           task: task.gid,
         }),
       ],
@@ -62,14 +62,6 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
 }
 
 async function main() {
-  core.info(`Asana found for ${ASANA_PAT}`);
-  core.info(`Asana found for ${ASANA_WORKSPACE_GID}`);
-  core.info(`Asana found for ${ASANA_PROJECT_GID}`);
-  core.info(`Asana found for ${ASANA_DONE_SECTION_GID}`);
-  core.info(`Asana found for ${ASANA_GITHUB_URL_FIELD_GID}`);
-
-
-
   const asanaClient = asana.Client.create().useAccessToken(ASANA_PAT);
   const octokit = new Octokit();
   let issues = [];
