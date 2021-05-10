@@ -63,6 +63,12 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
 
 async function main() {
   core.info(`Asana found for ${ASANA_PAT}`);
+  core.info(`Asana found for ${ASANA_WORKSPACE_GID}`);
+  core.info(`Asana found for ${ASANA_PROJECT_GID}`);
+  core.info(`Asana found for ${ASANA_DONE_SECTION_GID}`);
+  core.info(`Asana found for ${ASANA_GITHUB_URL_FIELD_GID}`);
+
+
 
   const asanaClient = asana.Client.create().useAccessToken(ASANA_PAT);
   const octokit = new Octokit();
