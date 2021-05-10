@@ -1,0 +1,22 @@
+{
+  "name": "github-asana-action",
+  "version": "1.0.0",
+  "description": "Integrates public github workflow with internal asana",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@actions/core": "^1.2.0",
+    "@octokit/action": "^3.8.1",
+    "@octokit/core": "^3.4.0",
+    "asana": "^0.17.3"
+  },
+  "devDependencies": {
+    "eslint": "^7.26.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-plugin-import": "^2.22.1"
+  }
+}
