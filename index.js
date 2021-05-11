@@ -62,6 +62,7 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
 }
 
 async function main() {
+  console.log(ASANA_PAT);
   const asanaClient = asana.Client.create().useAccessToken(ASANA_PAT);
   const octokit = new Octokit();
   let issues = [];
