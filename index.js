@@ -42,8 +42,6 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
     is_pinned: false,
   };
 
-  core.info(comment);
-
   const fn = function createAndClose(task) {
     return Promise.all(
       [
