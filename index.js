@@ -38,7 +38,7 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
   }
 
   const comment = {
-    text: `This issue has been resolved in release \`${GITHUB_RELEASE_NAME}\` of the provider.`,
+    html_text: `<body>(Automated Message) The GitHub issue linked to this Asana has been resolved in <a href="https://github.com/hashicorp/terraform-provider-aws/releases/tag/${GITHUB_RELEASE_NAME}">${GITHUB_RELEASE_NAME}</a> of the provider.<body>`,
     is_pinned: false,
   };
 
