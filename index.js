@@ -9,7 +9,9 @@ const ASANA_TARGET_SECTION_GID = core.getInput('asana_target_section_gid');
 const ASANA_GITHUB_URL_FIELD_GID = core.getInput('asana_github_url_field_gid');
 const GITHUB_RELEASE_NAME = core.getInput('github_release_name');
 
-const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
+// const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
+const owner = 'hashicorp';
+const repo = 'terraform-provider-aws';
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
