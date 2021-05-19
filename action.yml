@@ -19,6 +19,9 @@ inputs:
   github_release_name:
     description: 'Name of release to match milestone on'
     required: true
+  github_token:
+    description: 'GitHub Token.'
+    required: true
 
 runs:
   using: 'node12'

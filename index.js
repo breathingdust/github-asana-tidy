@@ -9,9 +9,7 @@ const ASANA_TARGET_SECTION_GID = core.getInput('asana_target_section_gid');
 const ASANA_GITHUB_URL_FIELD_GID = core.getInput('asana_github_url_field_gid');
 const GITHUB_RELEASE_NAME = core.getInput('github_release_name');
 
-// const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
-const owner = 'hashicorp';
-const repo = 'terraform-provider-aws';
+const [owner, repo] = process.env.GITHUB_REPOSITORY.split('/');
 
 function sleep(ms) {
   return new Promise((resolve) => setTimeout(resolve, ms));
@@ -64,7 +62,7 @@ async function checkAndCloseLinkedAsana(asanaClient, issueUrl) {
 }
 
 async function main() {
-  core.info(`Starting job for ${owner} ${repo}`);
+  core.info(`Starting job for ${owner} ${repo} with workspace:${ASANA_WORKSPACE_GID} project:${ASANA_PROJECT_GID} targetsection:${ASANA_TARGET_SECTION_GID} customfield:${ASANA_GITHUB_URL_FIELD_GID}`);
   const asanaClient = asana.Client.create().useAccessToken(ASANA_PAT);
   const octokit = new Octokit();
   let issues = [];
